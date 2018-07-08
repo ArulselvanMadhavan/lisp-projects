@@ -1,0 +1,20 @@
+* 
+* 
+** Substitution model for Procedure Application
+*** Normal order evaluation vs Applicative order evaluation
+    - Normal order
+      - Fully expand and then reduces the expressions.
+      - Often leads to evaluation of same expressions twice.
+    - Applicative order
+      - Evaluates the arguments and then "apply"
+      - Interpreter uses this method for efficiency
+*** Conditional Expressions
+#+BEGIN_SRC emacs-lisp
+(defun abs (x)
+  (if (< x 0)
+      (- x)
+    x))
+#+END_SRC
+
+#+RESULTS:
+: abs
