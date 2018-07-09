@@ -1,0 +1,10 @@
+#+BEGIN_SRC emacs-lisp
+10
+(+ 5 3 4)
+(- 9 1)
+(/ 6 2)
+(+ (* 2 4) (- 4 6))
+#+END_SRC
+
+#+RESULTS:
+: 12
