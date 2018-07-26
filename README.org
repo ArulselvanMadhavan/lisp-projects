@@ -18,3 +18,5 @@
 
 #+RESULTS:
 : abs
+*** Useful links
+    - [[http://www.wilfred.me.uk/blog/2017/03/19/pattern-matching-in-emacs-lisp/][Comparison of Emacs Pattern matching libraries]]

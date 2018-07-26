@@ -1,3 +1,7 @@
+;; -*- lexical-binding: t -*-
+(require 'seq)
+(require 'pcase)
+
 (defun square (x)
   (* x x))
 
@@ -12,7 +16,29 @@
 (defun smallest-divisor (n)
   (find-divisor n 2))
 
+(defun prime? (n)
+  (= (smallest-divisor n) n))
+
+(prime? 13)
+(print 13)
+(cons 1 2)
+(defun report-prime (n elapsed-time)
+  (print " *** ")
+  (print elapsed-time)
+  (list n elapsed-time))
+
+(defun start-prime-test (n start-time)
+  (if (prime? n)
+      (report-prime n (- (float-time) start-time))))
+
+(defun timed-prime-test (n)
+  (print n)
+  (start-prime-test n (float-time)))
+
 (smallest-divisor 127)
+(smallest-divisor 199)
+(smallest-divisor 1999)
+(smallest-divisor 19999)
 
 (defun expmod (base exp m)
   (cond ((= exp 0) 1)
@@ -32,6 +58,4 @@
         (t nil)))
 
 (fast-prime 16 3)
-
-
-
+(provide 'primality)
