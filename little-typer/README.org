@@ -1,0 +1,11 @@
+* The Little Typer
+** Chapter 1: The More things change, the more they stay the same
+*** Values
+    - An expression with a constructor at the top is called a value.
+    - In a value, the top constructor's arguments need not be normal.
+    - In a value, if the top constructor's arguments are normal, then
+      the entire constructor expression is in normal form.
+#+BEGIN_SRC lisp
+(add1
+  (+ (add1 zero) (add1 one)))
+#+END_SRC
