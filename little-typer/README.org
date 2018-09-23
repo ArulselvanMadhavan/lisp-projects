@@ -5,7 +5,32 @@
     - In a value, the top constructor's arguments need not be normal.
     - In a value, if the top constructor's arguments are normal, then
       the entire constructor expression is in normal form.
-#+BEGIN_SRC lisp
-(add1
-  (+ (add1 zero) (add1 one)))
-#+END_SRC
+    #+BEGIN_SRC lisp
+    (add1
+      (+ (add1 zero) (add1 one)))
+    #+END_SRC
+**** Are all values normal?
+     - Not every value is in normal form. This is because the
+       arguments to a constructor need not be normal.
+     - Each expression has only one normal form.
+     - It's possible to write an expression as a value in more than
+       one way.
+*** Expressions
+    - Everything in Pie is an expression.
+    - Evaluating an expression leads to an expression.
+    - Values are expressions.
+**** Normal Expression
+     - Normal expression has no further opportunities for evaluation.
+     - Easier to understand
+*** Atom
+    - Atoms are symbols.
+    - Atom is a type.
+    - Example: ~'dummy~
+    - Each atom constructs itself.
+    - All atoms are values.
+*** Judgments
+    - Judgment is an attitude that a person takes towards expressions.
+*** Commandments
+    1. zero is the same Nat as zero.
+    2. If n is the same Nat as k, then (add1 n) is the same Nat as
+       (add1 k).
