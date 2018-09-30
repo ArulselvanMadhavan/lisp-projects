@@ -1,0 +1,7 @@
+* Easy as Pie
+** Pie expression
+   - Pie expressions are used to declare type parameters.
+   - Difference between Π and λ expresions is, that when a Π
+     expression is applied the argument expressions replace the
+     argument names in the body of the Π expression.
+   - Π expression describe the type of the body of the λ expression.

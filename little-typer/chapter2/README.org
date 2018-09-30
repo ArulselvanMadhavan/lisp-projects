@@ -1,0 +1,15 @@
+* Doin' what comes naturally
+*** Constructors and Eliminators
+    - Eliminators take apart values built by constructors.
+    - Examples: ~car~, ~cdr~
+    - Constructors build values. Values contain information.
+      Eliminators allow that information to be used.
+**** Eliminator for functions
+     - Applying a function to arguments is the eliminator for functions.
+**** Lambda
+     - Lambda is a constructor.
+     - Every expression that starts with a lambda is a value.
+**** Neutral Expressions
+     - Expressions that are not balues and cannot yet be evaluated due
+       to a variable are called neutral.
+     - 

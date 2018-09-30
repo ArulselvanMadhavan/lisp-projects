@@ -1,0 +1,28 @@
+* Eliminate all Natural numbers
+** Sameness
+** Total function
+   - A function that assigns values for every possible input argument
+   - In Pie, all functions are total
+** Recursion is not an option
+** Nat eliminators
+   - ~which-Nat~, ~rec-Nat~, ~iter-Nat~
+*** which-Nat
+    - It gets the smaller Nat tucked under ~add1~ constructor
+*** iter-Nat
+    #+BEGIN_SRC racket
+    (iter-Nat target
+     base
+     step)
+    #+END_SRC
+    - ~iter-Nat~ replaces constructors similar to ~foldr~
+*** rec-Nat
+    - ~rec-Nat~ combines the expressiveness of ~iter-Nat~ and ~which-Nat~
+    - ~rec-Nat~ is like a foldr.
+    - ~rec-Nat~ is just like ~iter-Nat~ but carries recursive answer
+      as an additional argument.
+      #+BEGIN_SRC racket
+        (rec-Nat target
+         base
+         step)                                  ;step is a two argument function. arg1 is smaller Nat. arg2 is recursive result so far.         
+      #+END_SRC
+    - 

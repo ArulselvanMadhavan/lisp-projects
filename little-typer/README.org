@@ -34,3 +34,5 @@
     1. zero is the same Nat as zero.
     2. If n is the same Nat as k, then (add1 n) is the same Nat as
        (add1 k).
+    3. Neutral Expressions that are written identically are the same,
+       no matter their type.
