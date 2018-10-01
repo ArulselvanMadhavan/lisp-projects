@@ -38,3 +38,23 @@
       (rec-List es
                 0
                 (step-length E)))))
+
+(claim step-append
+       (Π ((E U))
+          (-> E (List E) (List E)
+              (List E))))
+(define step-append
+  (λ (E)
+    (λ (e es append-es)
+      (:: e append-es))))
+
+(claim append
+       (Π ((E U))
+          (-> (List E) (List E)
+              (List E))))
+(define append
+  (λ (E)
+    (λ (xs ys)
+      (rec-List xs
+                ys
+                (step-append E)))))
