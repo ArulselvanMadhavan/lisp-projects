@@ -1,0 +1,4 @@
+* Lists, Lists and More Lists
+** List
+   - ~::~ is a constructor. Pronounced as 'cons'
+   - ~nil~ is empty list constructor.
