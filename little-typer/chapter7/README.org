@@ -1,0 +1,17 @@
+* It all depends on the motive
+  - A type determined by something that is not a type is called a
+    ~dependent~ type.
+** rec-Nat vs ind-Nat
+   - To use rec-Nat, base must have the same type as the step
+   - ~ind-Nat~ is more powerful than ~rec-Nat~.
+   - ~ind-Nat~ is used for dependent types.
+   - ~ind-Nat~ takes an extra argument to state how the types of both
+     the base and the step's almost answer depend on the target value.
+   - This extra argument is called ~motive~
+     #+BEGIN_SRC racket
+     (-> Nat
+         U)
+     #+END_SRC
+   - ~ind-Nat~ expression's type is the motive applied to the target Nat.
+   - 
+

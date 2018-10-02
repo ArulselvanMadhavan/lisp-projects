@@ -5,7 +5,9 @@
    #+BEGIN_SRC racket
    (-> Y
        X)
+   #+END_SRC
    is short hand for
+   #+BEGIN_SRC racket
    (Π ((y Y))
-      X)
+      X)   
    #+END_SRC
