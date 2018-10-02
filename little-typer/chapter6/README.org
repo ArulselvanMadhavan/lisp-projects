@@ -1,0 +1,11 @@
+* Precisely How Many?
+** Π expressions are more flexible
+   - 
+** Relationship between Π and λ
+   #+BEGIN_SRC racket
+   (-> Y
+       X)
+   is short hand for
+   (Π ((y Y))
+      X)
+   #+END_SRC
