@@ -1,0 +1,7 @@
+* Pick a number, Any number
+** Sameness
+   - Expressions that don't have the same normal form can produce
+     values that are equal.
+   - We want to express that these expressions are "same".
+   - Sameness is a judgment
+   - With a new type constructor, types can express a new idea called equality,
