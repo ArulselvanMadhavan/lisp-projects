@@ -13,5 +13,6 @@
          U)
      #+END_SRC
    - ~ind-Nat~ expression's type is the motive applied to the target Nat.
-   - 
-
+** Readable expressions
+   - Understanding the answer is atleast as important as having the
+     correct answer.
