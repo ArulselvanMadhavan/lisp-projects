@@ -4,4 +4,75 @@
      values that are equal.
    - We want to express that these expressions are "same".
    - Sameness is a judgment
-   - With a new type constructor, types can express a new idea called equality,
+   - With a new type constructor, types can express a new idea called
+     equality.
+** Equality
+   - An expression (= X from to) is a type if *X* is a type, ~from~ is an
+     X and ~to~ is an X.
+** New perspective on Types
+   - Types can be read as *statements*
+   - Statements are sometimes called propositions.
+   - A judgment is an attitude a person takes towards expressions.
+   - Π-expressions are not the only types that can be read as statements.
+   - Π-expression can be read as /for-every/
+   - Example:
+     #+BEGIN_SRC racket
+     (Π ((n Nat))
+        (= Nat (+ 1 n) (add1 n)))
+     #+END_SRC
+   - This expression can be read as "For every Nat n, (+ 1 n) equals
+     (add1 n)"
+   - If a type can be read as statement, then judging the statement to
+     be true means that there is an expression with that type.
+   - So saying "(+ n 0) and n are equal Nats" means that there is an
+     expression with the type (= Nat (+ n 0) n)
+   - Saying something as true means there is evidence for it being true.
+   - This evidence is called /proof/.
+   - In principle, every type can be read as a statement, but most
+     types when read as statement could turn out to be uninteresting.
+   - Most Interesting statements are dependent types.
+   - Another way to think about statements(type) is an expectation of proof.
+   - "values" are the proofs.
+** The law of same
+   - The expression (same e) is an (= X e e) if e is an X.
+** Why is this important
+   - With the type constructor ~=~ and its constructor ~same~, expressions
+     can now state ideas that previously could only be judged.
+   - Creating expressions that capture the idea behind a form of
+     judgment is sometimes called /internalizing the form of judgment/.
+** Neutral Expressions
+   - Expressions that are not values and cannot yet be evaluated due
+     to a variable is called /neutral/.
+   - Simplest Neutral expressions are undefined variables. Variables are neutral
+     unless they refer to definitions.
+   - Example
+     #+BEGIN_SRC racket
+     (add1 x)
+     #+END_SRC
+** What does it mean for an expression to be normal?
+   - Normal form is the most direct way of writing an expression.
+   - If two expressions are same, then they have identical normal forms.
+** What is a Value
+   - An expression with a constructor at the top is called a Value.
+** Values vs Normal form of expressions
+   - Not every value is in normal form.
+   - Because Arguments to the constructor need not be normal.
+   - Each expression has only one normal form but it is sometimes
+     possible to write it as a value in more than one way.
+** Are all neutral expressions normal?
+   - Not always.
+** Where do neutral expressions come from?
+   - They occur frequently from =-expressions mention argument names
+     from Π-expressions.
+** Reading -> expressions
+   #+BEGIN_SRC racket
+   (-> X
+       Y)
+   #+END_SRC
+   can be read as "If X, then Y."
+** Congruence
+   - ~cong~ is an eliminator for *=*.
+   - (cong target f) is used to transform both expressions that target
+     equates using f.
+   - If /f/ is an (-> X Y) and target is an (= X from to), then 
+     (cong target f) is an (= Y (f from) (f to))
