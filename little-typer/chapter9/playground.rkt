@@ -155,12 +155,45 @@
              (step-add1+=+add1 j))))
 
 
-;; (= Nat
-;;    (add1 (+ (add1 n-1) j))
-;;    (+ (add1 n-1) (add1 j)))
-;; (= Nat
-;;    (add1 (add1 (+ n-1 j)))
-;;    (add1 (+ n-1 (add1 j))))
+;; Prove twice = double
+(claim mot-twice=double
+       (-> Nat
+           U))
+(define mot-twice=double
+  (λ (k)
+    (= Nat
+       (twice k)
+       (double k))))
+
+(claim mot-step-twice=double
+       (-> Nat Nat
+           U))
+(define mot-step-twice=double
+  (λ (n-1 k)
+    (= Nat
+       (add1 k)
+       (add1 (add1 (double n-1))))))
+
+(claim step-twice=double
+       (Π ((n-1 Nat))
+          (-> (mot-twice=double n-1)
+              (mot-twice=double (add1 n-1)))))
+(define step-twice=double
+  (λ (n-1)
+    (λ (twice=double-previous)
+      (replace (add1+=+add1 n-1 n-1)
+               (mot-step-twice=double n-1)
+               (cong twice=double-previous
+                     (+ 2))))))
+
+(claim twice=double
+       (Π ((n Nat))
+          (= Nat (twice n) (double n))))
+(define twice=double
+  (λ (n)
+    (ind-Nat n
+             mot-twice=double
+             (same zero)
+             step-twice=double)))
 
 
-;; (mot-add1+=+add1 3 4)
