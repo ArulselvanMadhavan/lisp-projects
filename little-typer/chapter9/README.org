@@ -30,3 +30,14 @@
    #+BEGIN_SRC racket
    (mot to)
    #+END_SRC
+** Law of Symm
+   #+BEGIN_SRC racket
+   If e is an (= X from to), then (symm e) is an (= X to from)
+   #+END_SRC
+** Commandment of Symm
+   #+BEGIN_SRC racket
+   If x is an X, then
+   (= X x x)
+   as
+   (same x)
+   #+END_SRC

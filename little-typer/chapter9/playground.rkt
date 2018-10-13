@@ -197,3 +197,76 @@
              step-twice=double)))
 
 
+(claim twice=double-of-17
+       (= Nat (twice 17) (double 17)))
+(define twice=double-of-17
+  (twice=double 17))
+
+(claim twice=double-of-17-again
+       (= Nat (twice 17) (double 17)))
+(define twice=double-of-17-again
+  (same 34))
+
+;; Now double-Vec
+(claim base-double-Vec
+       (Π ((E U))
+          (-> (Vec E zero)
+              (Vec E (double zero)))))
+(define base-double-Vec
+  (λ (E)
+    (λ (es)
+      vecnil)))
+
+(claim mot-double-Vec
+       (-> U Nat
+           U))
+(define mot-double-Vec
+  (λ (E k)
+    (-> (Vec E k)
+        (Vec E (double k)))))
+
+(claim step-double-Vec
+       (Π ((E U)
+           (l-1 Nat))
+          (-> (-> (Vec E l-1)
+                  (Vec E (double l-1)))
+              (-> (Vec E (add1 l-1))
+                  (Vec E (double (add1 l-1)))))))
+(define step-double-Vec
+  (λ (E l-1)
+    (λ (double-Vec-l-1)
+      (λ (es)
+        (vec:: (head es)
+               (vec:: (head es)
+                      (double-Vec-l-1
+                       (tail es))))))))
+
+(claim double-Vec
+       (Π ((E U)
+           (l Nat))
+          (-> (Vec E l)
+              (Vec E (double l)))))
+(define double-Vec
+  (λ (E l)
+    (ind-Nat l
+             (mot-double-Vec E)
+             (base-double-Vec E)
+             (step-double-Vec E))))
+
+;; Now twice-Vec
+
+
+(claim twice-Vec
+       (Π ((E U)
+           (l Nat))
+          (-> (Vec E l)
+              (Vec E (twice l)))))
+(define twice-Vec
+  (λ (E l)
+    (λ (es)
+      (replace (symm (twice=double l))
+               (λ (k)
+                 (Vec E k))
+               (double-Vec E l es)))))
+
+
