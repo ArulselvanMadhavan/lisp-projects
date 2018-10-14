@@ -1,0 +1,37 @@
+* It also depends on the list
+** Sigma type
+   #+BEGIN_SRC racket
+   (Σ ((x A))
+      D)
+   #+END_SRC
+   is a type when
+   - A is a type and
+   - D is a type if x is an A
+** Cons and Sigma
+   - If p is a
+    #+BEGIN_SRC racket
+    (Σ ((x A))
+       D)
+    #+END_SRC
+    then p is the same as
+    #+BEGIN_SRC racket
+    (cons (car p) (cdr p))
+    #+END_SRC
+** Pair and Sigma
+   - The type of ~cons~ is Pair
+   - Pair is a short way of writing
+     #+BEGIN_SRC racket
+     (Σ ((x A))
+        D)
+     #+END_SRC
+     when x is not used in D
+** Pair can be read as a statement
+   - (Pair A D) consists of evidence for both A and D with /cons/ at
+     the top.
+   - Example:
+     #+BEGIN_SRC racket
+     (Pair (= Nat 2 3)
+       (= Atom 'apple 'apple))
+     #+END_SRC
+   - This can be read as "2 equals 3 and 'apple equals 'apple
+** Sigma can read as "there exists"
