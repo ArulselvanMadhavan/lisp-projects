@@ -1,0 +1,8 @@
+* Even numbers can be odd5
+** What does it mean to be odd? 
+   - There is some number added to itself, yields the original number.
+   - Expressing this a type, requires a "there is" statement.
+** Odd Numbers
+   - Odd numbers can't be split evenly.
+   - There is always an extra ~add1~
+   - 
