@@ -74,3 +74,46 @@
        (Odd 13))
 (define thirteen-is-odd
   (cons 6 (same 13)))
+
+;; Statement 4: If n is even, then (add1 n) is Odd
+(claim add1-even->odd
+       (Π ((n Nat))
+          (-> (Even n)
+              (Odd (add1 n)))))
+(define add1-even->odd
+  (λ (n en)
+    (cons (car en)
+          (cong (cdr en) (+ 1)))))
+
+;; Statement 5: If n is odd, then (add1 n) is Even
+(claim add1-odd->even
+       (Π ((n Nat))
+          (-> (Odd n)
+              (Even (add1 n)))))
+(define add1-odd->even
+  (λ (n on)
+    (cons (add1 (car on))
+          (cong (cdr on) (+ 1)))))
+
+;; Ackermann
+(claim repeat
+       (-> (-> Nat
+               Nat)
+           Nat
+           Nat))
+(define repeat
+  (λ (f n)
+    (iter-Nat n
+              (f 1)
+              (λ (iter-f-n-1)
+                (f iter-f-n-1)))))
+
+(claim ackermann
+       (-> Nat Nat
+           Nat))
+(define ackermann
+  (λ (n)
+    (iter-Nat n
+              (+ 1)
+              (λ (ack-n-1)
+                (repeat ack-n-1)))))
