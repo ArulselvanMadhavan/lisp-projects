@@ -1,0 +1,16 @@
+* Even haf a baker's dozen
+** Either type
+   - (Either L R) is a type if L is a type and R is a type.
+     #+BEGIN_SRC racket
+     (ind-Either target
+      mot
+      base-left
+      base-right)
+     #+END_SRC
+     #+BEGIN_SRC racket
+     (ind-Either (left x)
+      mot
+      base-left
+      base-right)
+     #+END_SRC
+     is the same (mot (left x)) as (base-left x)

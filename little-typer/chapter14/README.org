@@ -1,0 +1,6 @@
+* There's safety in Numbers
+** Trivial type
+   - ~Trivial~ is a type. ~sole~ is a ~Trivial~
+   - There is only one value of type ~Trivial~ and it is ~sole~.
+   - If e is a Trivial then it is the same as sole.
+   - Neutral Trivial expressions are the same as sole.
