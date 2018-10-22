@@ -4,3 +4,24 @@
    - There is only one value of type ~Trivial~ and it is ~sole~.
    - If e is a Trivial then it is the same as sole.
    - Neutral Trivial expressions are the same as sole.
+** Absurd type
+   - Every expression of type Absurd is Neutral and all of them are
+     the same.
+     #+BEGIN_SRC racket
+     (ind-Absurd target
+      mot)
+     #+END_SRC
+     is a mot when target is an Absurd.
+   - The type of mot is ~U~
+   - There are no Absurd values.
+   - Absurd expressions are used to express the idea that some
+     expressions can never be evaluated and they are permanently
+     neutral.
+** Fin
+     #+BEGIN_SRC racket
+     (claim Fin
+       (-> Nat
+           U))
+     #+END_SRC
+     - For each Nat n, (Fin n) should be a type with n values.
+     - (Fin zero) should have zero values. (Absurd)
