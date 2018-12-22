@@ -8,3 +8,11 @@
 (current-buffer)
 ;; Get the other buffer(that is not in the frame)
 (other-buffer)
+;; Switching to buffer
+(switch-to-buffer (other-buffer))
+;; Buffer-size
+(buffer-size)
+;; (point)
+(point)
+(point-min)
+(point-max)
